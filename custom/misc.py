@@ -4,6 +4,7 @@ _base_ = [
 ]
 
 optim_wrapper = dict(
+    _delete_=True
     type='AmpOptimWrapper',  
     optimizer=dict(
         type='AdamW',  
