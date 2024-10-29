@@ -14,7 +14,7 @@ train_pipeline = [
                  dict(type='RandomChoiceResize', scales=[(400, 600), (500, 750), (600, 900)]),
                  dict(type='RandomCrop', crop_type='absolute_range',
                       crop_size=(384, 384), allow_negative_crop=True), 
-                 dict(type='Resize', scale=(224, 224), override=True)
+                 dict(type='Resize', scale=(224, 224))
              ]
          ]),
     dict(type='RandomFlip', prob=0.5),
