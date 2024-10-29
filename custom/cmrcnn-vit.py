@@ -5,10 +5,9 @@ _base_ = [
 ]
 
 custom_imports = dict(
-    imports=['mmpretrain.models', 'custom.freeze_hook'], allow_failed_imports=False
+    imports=['mmpretrain.models', 'custom.freeze_hook', 'custom.layer_decay'], allow_failed_imports=False
 )
 #custom_hooks = [dict(type='FreezeHook')]
-
 
 
 model = dict(

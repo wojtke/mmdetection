@@ -3,10 +3,6 @@ _base_ = [
     '../configs/_base_/default_runtime.py'
 ]
 
-custom_imports = dict(
-    imports=['custom.layer_decay'], allow_failed_imports=False
-)
-
 optim_wrapper = dict(
     type='AmpOptimWrapper',  
     optimizer=dict(
