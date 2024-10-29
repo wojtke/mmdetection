@@ -69,25 +69,5 @@ model = dict(
             )
         ]
     ),
-    train_cfg=dict(
-        rpn_proposal=dict(
-            nms_across_levels=False,  # Disable NMS across levels in ViT config
-            nms_pre=2000,  # Same as default, pre-NMS filtering
-            nms_post=2000,  # Change to include post-NMS filtering
-            max_per_img=2000,  # Same as default
-            nms=dict(type='nms', iou_threshold=0.7),  # Same as default
-            min_bbox_size=0  # Same as default
-        ),
-    ),
-    test_cfg=dict(
-        rpn=dict(
-            nms_across_levels=False,  # Disable NMS across levels in ViT config
-            nms_pre=1000,  # Same as default, pre-NMS filtering
-            nms_post=1000,  # Change to include post-NMS filtering
-            max_per_img=1000,  # Same as default
-            nms=dict(type='nms', iou_threshold=0.7),  # Same as default
-            min_bbox_size=0  # Same as default
-        )
-    )
 )
 
