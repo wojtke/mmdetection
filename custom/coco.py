@@ -8,6 +8,7 @@ img_norm_cfg = dict(
     to_rgb=True
 )
 
+train_dataloader = dict(batch_size=8, num_workers=16)
 # augmentation strategy originates from DETR / Sparse RCNN
 train_pipeline = [
     dict(type='LoadImageFromFile'),

@@ -1,13 +1,13 @@
 _base_ = [
     '../configs/_base_/models/cascade-mask-rcnn_r50_fpn.py',
-    'coco.py',
+    'coco_224.py',
     'misc.py'
 ]
 
 custom_imports = dict(
     imports=['mmpretrain.models', 'custom.freeze_hook'], allow_failed_imports=False
 )
-#custom_hooks = [dict(type='FreezeHook')]
+custom_hooks = [dict(type='FreezeHook')]
 
 
 
@@ -18,7 +18,7 @@ model = dict(
         model_name='vit_small_patch16_224',
         features_only=True,
         pretrained=True,
-        img_size=[800, 1008],  # Custom image size | https://github.com/bytedance/ibot/blob/da316d82636a7a7356835ef224b13d5f3ace0489/evaluation/object_detection/configs/cascade_rcnn/vit_small_giou_4conv1f_coco_3x.py#L20
+        img_size=[224, 224],  # Custom image size | https://github.com/bytedance/ibot/blob/da316d82636a7a7356835ef224b13d5f3ace0489/evaluation/object_detection/configs/cascade_rcnn/vit_small_giou_4conv1f_coco_3x.py#L20
         patch_size=16,  # Patch size for ViT
         embed_dim=384,  # Embedding dimension for transformer
         depth=12,  # Number of transformer layers (depth)
@@ -27,7 +27,7 @@ model = dict(
         qkv_bias=True,  # Enable bias for QKV projection
         drop_path_rate=0.1,  # Stochastic depth rate
         out_indices=(3, 5, 7, 11),  # Change in output feature map indices
-        dynamic_img_size=True # Enables pos encoding interpolation https://github.com/huggingface/pytorch-image-models/blob/310ffa32c5758474b0a4481e5db1494dd419aa23/timm/models/vision_transformer.py#L657
+        dynamic_img_size=False # Enables pos encoding interpolation https://github.com/huggingface/pytorch-image-models/blob/310ffa32c5758474b0a4481e5db1494dd419aa23/timm/models/vision_transformer.py#L657
     ),
     neck=dict(
         type='FPN',  # Keep FPN but modify the input channels

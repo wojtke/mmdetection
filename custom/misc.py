@@ -33,9 +33,10 @@ optimizer_config = dict(
 
 vis_backends = [dict(type='LocalVisBackend'), dict(type='WandbVisBackend')]
 visualizer = dict(vis_backends=vis_backends)
+visualization = dict(draw=True, show=True)
 
 # MMEngine support the following two ways, users can choose
 # according to convenience
 default_hooks = dict(checkpoint=dict(interval=4))
-
+train_cfg = dict(val_interval=2)
 find_unused_parameters = True
